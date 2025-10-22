@@ -3,5 +3,5 @@ project(Learn-C C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_subdirectory(Chapter-2/programs)
-add_subdirectory(Chapter-3/programs)
+add_subdirectory(Chapter-2)
+add_subdirectory(Chapter-3)

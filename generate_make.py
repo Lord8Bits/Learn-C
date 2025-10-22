@@ -11,7 +11,7 @@ def ensure_root_cmake_header():
             f.write("set(CMAKE_C_STANDARD 11)\n\n")
 
 def chapter_programs_dir(ch_num):
-    return f"Chapter-{ch_num}/programs"
+    return f"Chapter-{ch_num}"
 
 def generate_chapter_cmake(chapter):
     root = chapter_programs_dir(chapter)
@@ -39,7 +39,7 @@ def update_root_cmake():
     ensure_root_cmake_header()
 
     subdirs = [
-        f"add_subdirectory(Chapter-{i}/programs)\n"
+        f"add_subdirectory(Chapter-{i})\n"
         for i in CHAPTER_RANGE
         if os.path.isdir(chapter_programs_dir(i))
     ]
