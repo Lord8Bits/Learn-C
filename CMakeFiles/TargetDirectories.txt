@@ -1,0 +1,8 @@
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/check_sign_print.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/money_division.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/polynomial.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/remaining_from_loan.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/taxation.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/volume_sphere.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/edit_cache.dir
+/home/lorend/CLionProjects/Learn-C/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,105 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "4.0"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Learn-C",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "check_sign_print::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-check_sign_print-Debug-90636eb881be27d72d92.json",
+					"name" : "check_sign_print",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "money_division::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-money_division-Debug-d16a5d21e273f0b14255.json",
+					"name" : "money_division",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "polynomial::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-polynomial-Debug-b46a754146535420e792.json",
+					"name" : "polynomial",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "remaining_from_loan::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-remaining_from_loan-Debug-e0b95981f5bd6ee3ddc0.json",
+					"name" : "remaining_from_loan",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "taxation::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-taxation-Debug-78447d88358cedc51eec.json",
+					"name" : "taxation",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "volume_sphere::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-volume_sphere-Debug-e30d21f8342cbd29c206.json",
+					"name" : "volume_sphere",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/lorend/CLionProjects/Learn-C",
+		"source" : "/home/lorend/CLionProjects/Learn-C/Chapter-2/programs"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

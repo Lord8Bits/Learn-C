@@ -1,0 +1,4 @@
+/home/lorend/CLionProjects/Learn-C/cmake-build-debug/CMakeFiles/TP_ma_boi_adam.dir
+/home/lorend/CLionProjects/Learn-C/cmake-build-debug/CMakeFiles/matrice.dir
+/home/lorend/CLionProjects/Learn-C/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lorend/CLionProjects/Learn-C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
