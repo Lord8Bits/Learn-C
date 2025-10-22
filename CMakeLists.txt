@@ -1,9 +1,11 @@
-cmake_minimum_required(VERSION 4.0)
-project(Learn-C C)
+cmake_minimum_required(VERSION 3.10)
+project(Learn_C C)
 
-file(GLOB SRC_FILES *.c)
+# Search all chapter directories
+file(GLOB CHAPTER_DIRS RELATIVE ${CMAKE_SOURCE_DIR} Chapter-*)
 
-foreach(src ${SRC_FILES})
-    get_filename_component(exec_name ${src} NAME_WE)
-    add_executable(${exec_name} ${src})
+foreach(chapter ${CHAPTER_DIRS})
+    if(IS_DIRECTORY ${CMAKE_SOURCE_DIR}/${chapter})
+        add_subdirectory(${chapter})
+    endif()
 endforeach()
