@@ -3,6 +3,12 @@ cmake-build-*/
 CMakeFiles/
 CMakeCache.txt
 Makefile
+.cmake/
+build.ninja
+cmake_Install.cmake
+cmake-build-debug/
+Testing/
+
 
 
 *.o
