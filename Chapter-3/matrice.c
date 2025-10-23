@@ -42,7 +42,7 @@ int main(void)
     {
         for (int j = 0; j < dimension; j++)
         {
-            printf("  %.2f  ",  matrix[i * dimension + j] );
+            printf("  %+12.2f  ",  matrix[i * dimension + j] );
         }
         printf("\n");
     }

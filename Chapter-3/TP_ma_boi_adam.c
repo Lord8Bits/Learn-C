@@ -30,7 +30,7 @@ int main(void)
      */
     for (int i = 0; i < non_zero; i++)
     {
-        if (array[i] == 0) // For edge cases like [0,0,1,2,1]
+        if (array[i] == 0) // For edge cases like [5,2,1,5,0]
         {
             array[i] = array[non_zero];
             array[non_zero] = 0;
@@ -80,4 +80,3 @@ int main(void)
 
     return EXIT_SUCCESS;
 }
-
