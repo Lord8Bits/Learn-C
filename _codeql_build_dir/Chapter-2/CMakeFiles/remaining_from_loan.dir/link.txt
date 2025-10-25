@@ -1,0 +1,1 @@
+/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/remaining_from_loan.dir/link.d CMakeFiles/remaining_from_loan.dir/remaining_from_loan.c.o -o remaining_from_loan

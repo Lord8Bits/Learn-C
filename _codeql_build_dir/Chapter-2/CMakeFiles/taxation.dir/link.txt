@@ -1,0 +1,1 @@
+/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/taxation.dir/link.d CMakeFiles/taxation.dir/taxation.c.o -o taxation

@@ -1,0 +1,1 @@
+/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/volume_sphere.dir/link.d CMakeFiles/volume_sphere.dir/volume_sphere.c.o -o volume_sphere

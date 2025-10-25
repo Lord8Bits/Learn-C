@@ -1,0 +1,1 @@
+/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/anti_doublon.dir/link.d CMakeFiles/anti_doublon.dir/anti_doublon.c.o -o anti_doublon
