@@ -1,1 +1,0 @@
-/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/matrice.dir/link.d CMakeFiles/matrice.dir/matrice.c.o -o matrice

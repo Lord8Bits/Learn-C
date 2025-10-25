@@ -1,1 +1,0 @@
-/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/decalage.dir/link.d CMakeFiles/decalage.dir/decalage.c.o -o decalage

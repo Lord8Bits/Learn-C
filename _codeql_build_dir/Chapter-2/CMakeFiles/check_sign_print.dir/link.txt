@@ -1,1 +1,0 @@
-/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/check_sign_print.dir/link.d CMakeFiles/check_sign_print.dir/check_sign_print.c.o -o check_sign_print

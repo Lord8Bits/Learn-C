@@ -1,1 +1,0 @@
-/home/runner/work/Learn-C/.codeql-scratch/dbs/cpp/working/autobuild/bin/cc -O3 -DNDEBUG -Wl,--dependency-file=CMakeFiles/money_division.dir/link.d CMakeFiles/money_division.dir/money_division.c.o -o money_division
