@@ -10,11 +10,14 @@ int main(void)
     int radius;
 
     printf("Enter the radius of the sphere: ");
-    scanf("%d", &radius);
+    if (scanf("%d", &radius) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
 
     float volume = 4.0f/3.0f * PI * radius * radius * radius;
 
-    printf("The volume is equal to: %.5f", volume);
+    printf("The volume is equal to: %.5f\n", volume);
 
     return EXIT_SUCCESS;
 }

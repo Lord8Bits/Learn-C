@@ -1,18 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_ARRAY_SIZE 10000
 
 int main(void)
 {
     int size, number; // Declaring the size of the array and the number to be added
     printf("Enter the size of the array: ");
-    scanf("%d", &size); // size received from console input
+    if (scanf("%d", &size) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
+    
+    // Validate array size to prevent buffer overflow
+    if (size <= 0 || size > MAX_ARRAY_SIZE) {
+        fprintf(stderr, "Error: Array size must be between 1 and %d\n", MAX_ARRAY_SIZE);
+        return EXIT_FAILURE;
+    }
 
     int array[size];
 
     for (int i = 0; i < size; i++) // Loop reads user input until the last index and adds each number to the array
     {
-        scanf("%d", &number);
+        if (scanf("%d", &number) != 1) {
+            fprintf(stderr, "Error: Invalid input for array element\n");
+            return EXIT_FAILURE;
+        }
         array[i] = number;
     }
 

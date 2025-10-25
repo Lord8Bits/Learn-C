@@ -14,11 +14,20 @@ int main(void)
     float loan, interest_rate, monthly_payment;
 
     printf("Enter amount of loan: ");
-    scanf("%f", &loan);
+    if (scanf("%f", &loan) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
     printf("Enter the interest rate: ");
-    scanf("%f", &interest_rate);
+    if (scanf("%f", &interest_rate) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
     printf("Enter monthly payment: ");
-    scanf("%f", &monthly_payment);
+    if (scanf("%f", &monthly_payment) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
 
     interest_rate /= 12; // Converted to monthly interest rate so divided by 12 months
 
@@ -27,7 +36,7 @@ int main(void)
     loan = loan + (loan * interest_rate / 100) - monthly_payment;
     printf("\nBalance remaining after second payment: %.2f", loan);
     loan = loan + (loan * interest_rate / 100) - monthly_payment;
-    printf("\nBalance remaining after third payment: %.2f", loan);
+    printf("\nBalance remaining after third payment: %.2f\n", loan);
 
     return EXIT_SUCCESS;
 }

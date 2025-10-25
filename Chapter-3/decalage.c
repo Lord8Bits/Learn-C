@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+#define MAX_ARRAY_SIZE 10000
 
 int main(void)
 {
@@ -7,8 +10,12 @@ int main(void)
     while (true)
     {
         printf("Enter the size of the array: ");
-        scanf("%d", &size);
-        if (size > 0 && size < 100) break;
+        if (scanf("%d", &size) != 1) {
+            fprintf(stderr, "Error: Invalid input\n");
+            return EXIT_FAILURE;
+        }
+        if (size > 0 && size <= MAX_ARRAY_SIZE) break;
+        printf("Error: Array size must be between 1 and %d\n", MAX_ARRAY_SIZE);
     }
 
     int array[size], value, positive = 0;
@@ -16,7 +23,10 @@ int main(void)
     for (int i = 0; i < size; i++)
     {
         printf("\nEnter the value in the array: ");
-        scanf("%d", &value);
+        if (scanf("%d", &value) != 1) {
+            fprintf(stderr, "Error: Invalid input for array element\n");
+            return EXIT_FAILURE;
+        }
         /*
          * This is the positive value logic, it will push the number in the far right to the left
          * with every preceding numbers, then replacing the last index with the new value.
@@ -55,7 +65,7 @@ int main(void)
         printf("%d, ", array[i]);
     }
 
-    printf("%d]", array[size-1]);
+    printf("%d]\n", array[size-1]);
 
     return EXIT_SUCCESS;
 }
