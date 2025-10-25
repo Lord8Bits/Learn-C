@@ -1,0 +1,16 @@
+# Build directories
+build/
+_codeql_build_dir/
+*.o
+*.exe
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db

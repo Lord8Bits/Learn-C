@@ -9,9 +9,12 @@ int main(void)
     float money;
 
     printf("Enter the dollar-cents amount: ");
-    scanf("%f", &money);
+    if (scanf("%f", &money) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
 
-    printf("With tax added: $%.3f", money * 1.05);
+    printf("With tax added: $%.3f\n", money * 1.05);
 
     return EXIT_SUCCESS;
 }

@@ -9,14 +9,17 @@ int main(void)
     int money;
 
     printf("Enter a dollar amount: ");
-    scanf("%d", &money);
+    if (scanf("%d", &money) != 1) {
+        fprintf(stderr, "Error: Invalid input\n");
+        return EXIT_FAILURE;
+    }
 
     int bills20 = money / 20; money -= 20 * bills20;
     int bills10 = money / 10; money -= 10 * bills10;
     int bills5 = money / 5; money -= 5 * bills5;
     int bills1 = money;
 
-    printf("$20 bills: %d\n$10 bills: %d\n$5 bills: %d\n$1 bills: %d",
+    printf("$20 bills: %d\n$10 bills: %d\n$5 bills: %d\n$1 bills: %d\n",
          bills20, bills10, bills5, bills1);
     return EXIT_SUCCESS;
 }

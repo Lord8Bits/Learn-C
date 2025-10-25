@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 // #include <time.h>
 
 // Created by lorend on 10/21/25.
+
+#define MAX_MATRIX_DIMENSION 100
 
 int main(void)
 {
@@ -10,8 +13,12 @@ int main(void)
     while (true)
     {
         printf("Entrer l'ordre de la matrice (1-4): ");
-        scanf("%d", &dimension);
-        if (dimension > 0 && dimension < 5) break;
+        if (scanf("%d", &dimension) != 1) {
+            fprintf(stderr, "Error: Invalid input\n");
+            return EXIT_FAILURE;
+        }
+        if (dimension > 0 && dimension <= MAX_MATRIX_DIMENSION) break;
+        printf("Error: Matrix dimension must be between 1 and %d\n", MAX_MATRIX_DIMENSION);
     }
 
     int n_coef = dimension*dimension; // The total number of coefficients
@@ -24,7 +31,10 @@ int main(void)
         for (int j = 0; j < dimension; j++)
         {
             printf("Entrer la valeur de a_%d,%d: ", i+1, j+1);
-            scanf("%f", &value);
+            if (scanf("%f", &value) != 1) {
+                fprintf(stderr, "Error: Invalid input for matrix element\n");
+                return EXIT_FAILURE;
+            }
 
             matrix[i * dimension + j] = value; // Adds new values for the selected row
         }
