@@ -6,7 +6,7 @@
 
 int main(void)
 {
-    int dimension = 1000;
+    int dimension;
     while (true)
     {
         printf("Entrer l'ordre de la matrice (1-4): ");
