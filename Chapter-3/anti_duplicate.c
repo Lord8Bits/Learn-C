@@ -35,6 +35,7 @@ int main(void)
             array[i] = array[non_zero];
             array[non_zero] = 0;
             non_zero--;
+            while (non_zero > 0 && array[non_zero] == 0) non_zero--;
             i--; // Recheck the new value
         }
         else
@@ -46,6 +47,7 @@ int main(void)
                     array[j] = array[non_zero];
                     array[non_zero] = 0;
                     non_zero--;
+                    while (non_zero > 0 && array[non_zero] == 0) non_zero--;
                     j--; // Recheck the new value
                 }
             }
