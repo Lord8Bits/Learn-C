@@ -4,18 +4,19 @@
 int main(void)
 {
     int size;
-    while (true)
+    do
     {
         printf("Enter the size of the array: ");
         scanf("%d", &size);
-        if (size > 0 && size < 100) break;
     }
+    while (size <= 0 || size > 100);
 
     int array[size], value, positive = 0;
 
+    printf("\n");
     for (int i = 0; i < size; i++)
     {
-        printf("\nEnter the value in the array: ");
+        printf("Enter the value in the array: ");
         scanf("%d", &value);
         /*
          * This is the positive value logic, it will push the number in the far right to the left
