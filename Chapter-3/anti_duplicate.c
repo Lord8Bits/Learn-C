@@ -17,7 +17,7 @@ int main(void)
     }
 
     int non_zero = size - 1; // This will serve as history for the last index that isn't 0
-    while (!array[non_zero] && non_zero > 0) non_zero--; // [1,2,0,0] so non_zero is index 1
+    while (!array[non_zero] && non_zero > 0) non_zero--; // [2,1,0,0,0,0] so non_zero is index 1
 
 
     /*
@@ -46,7 +46,7 @@ int main(void)
                     array[j] = array[non_zero];
                     array[non_zero] = 0;
                     non_zero--;
-                    i--; // Recheck the new value
+                    j--; // Recheck the new value
                 }
             }
         }
