@@ -19,11 +19,11 @@ int main(void)
     float matrix[n_coef]; // The matrix studied
     float value = 0.0f; // Placeholder variable
 
-    for (int i = 0; i < dimension; i++) // i and j starts from 1 only for a nicer print in the console
+    for (int i = 0; i < dimension; i++)
     {
         for (int j = 0; j < dimension; j++)
         {
-            printf("Entrer la valeur de a_%d,%d: ", i+1, j+1);
+            printf("Entrer la valeur de a_%d,%d: ", i+1, j+1); // i + 1 and j + 1 only to represent coefficients
             scanf("%f", &value);
 
             matrix[i * dimension + j] = value; // Adds new values for the selected row
@@ -50,7 +50,8 @@ int main(void)
     // Lower Triangular:
     /*
      * Takes the matrix and separates it into different rows by creating the selected_row variable that start in the
-     * dimension value until the n_coef - dimension (for example for dim = 3, we would stop until 9-3 = 6 else we are out of bound).
+     * dimension value (since lower triangular has no zeros in the first row) until the n_coef - dimension
+     * (for example for dim = 3, we would stop until 9-3 = 6 else we are out of bound).
      * Index i will serve to select the coefficient in a row, and required_0s is the number of 0s that should be in a row.
      * If at least one of them is not 0 the loop will stop and isTriangular_lower will be set to false.
      */
@@ -61,13 +62,13 @@ int main(void)
     {
         for (int i = 0; i < required_0s; i++)
         {
-            if (matrix[i+selected_row])
+            if (matrix[i+selected_row]) // if we have row 2 = [0,2,9,10] | i = 0 -> matrix[0 + dimension] = matrix[0 + 4] = 0, so if (0) is false
             {
                 is_triangular_lower = false;
                 break; // if the coefficient isn't 0 then break
             }
         }
-        required_0s++;
+        required_0s++; // each row would need +1 zero, row 1 need none, row 2 needs 1 zero, row 3 needs 2 zeros and so on
     }
 
     // Upper Triangular:
@@ -82,11 +83,11 @@ int main(void)
     required_0s = dimension-1;
     int next = 0;
 
-    for (int selected_row = 0 ; selected_row < n_coef - dimension ; selected_row += dimension)
+    for (int r = 0 ; r < n_coef - dimension ; r += dimension)
     {
         for (int i = 1 + next; i <= required_0s; i++)
         {
-            if (matrix[i + selected_row + next])
+            if (matrix[i + r + next])
             {
                 is_triangular_upper = false;
                 break; // if the coefficient isn't 0 then break
@@ -96,45 +97,26 @@ int main(void)
         next++;
     }
 
-    if (is_triangular_upper && is_triangular_lower) printf("The square matrix is diagonal and symmetrical.");
+    if (is_triangular_upper && is_triangular_lower) printf("The square matrix is diagonal hence symmetrical.");
     else if (is_triangular_upper) printf("The square matrix is an upper triangular.");
     else if (is_triangular_lower) printf("The square matrix is a lower triangular.");
     else
     {
         bool is_symmetrical = true;
-        float matrix_t[n_coef]; // Transposed Matrix
-        int t_j = 0; //
 
-        for (int selected_row = 0; selected_row <= n_coef - dimension; selected_row += dimension)
-        {
-            int t_col = 0;  // Transpose col
-            for (int i = 0; i < dimension; i++)
+        for (int r = 0; r < dimension && is_symmetrical; r++)
+            for (int c = 0; c < dimension; c++)
             {
-                matrix_t[t_j+t_col] = matrix[i+selected_row];
-                t_col += dimension;
+                if (matrix[r * dimension + c] != matrix[c * dimension + r])
+                // following the definition of symmetrical: M[i,j] == M[j,i]
+                {
+                    is_symmetrical = false;
+                    break;
+                }
             }
-            t_j++;
-        }
 
-        /*
-         * This final loop will simply check whether the matrices are equal by taking the float values and
-         * calculate their absolute difference.
-         * The difference will have a precision of epsilon = 1e-6
-         */
-        bool equal = true;
-        for (int i = 0; i < n_coef; i++)
-        {
-            float diff = matrix_t[i] - matrix[i];
-            if (diff < 0) diff *= -1;
 
-            if (diff > 1e-6f)
-            {
-                equal = false;
-                break;
-            }
-        }
-
-        if (equal) printf("The matrix is symmetrical.\n");
+        if (is_symmetrical) printf("The matrix is symmetrical.\n");
         else printf("The matrix isn't triangular nor is it symmetrical.");
 
     }
