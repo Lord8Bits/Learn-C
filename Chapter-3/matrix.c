@@ -3,16 +3,17 @@
 // #include <time.h>
 
 // Created by lorend on 10/21/25.
+#define M(r,c) (matrix[(r)*dimension + (c)]) // matrix row to column selection
 
 int main(void)
 {
-    int dimension;
-    while (true)
+    int dimension = 0;
+    do
     {
         printf("Entrer l'ordre de la matrice (1-4): ");
         scanf("%d", &dimension);
-        if (dimension > 0 && dimension < 5) break;
     }
+    while (dimension <= 0 || dimension >= 5);
 
     int n_coef = dimension*dimension; // The total number of coefficients
 
@@ -26,7 +27,7 @@ int main(void)
             printf("Entrer la valeur de a_%d,%d: ", i+1, j+1); // i + 1 and j + 1 only to represent coefficients
             scanf("%f", &value);
 
-            matrix[i * dimension + j] = value; // Adds new values for the selected row
+            M(i,j) = value; // Adds new values for the selected row
         }
 
     }
@@ -42,33 +43,30 @@ int main(void)
     {
         for (int j = 0; j < dimension; j++)
         {
-            printf("  %+12.2f  ",  matrix[i * dimension + j] );
+            printf("  %+12.2f  ",  M(i,j) );
         }
         printf("\n");
     }
 
     // Lower Triangular:
     /*
-     * Takes the matrix and separates it into different rows by creating the selected_row variable that start in the
-     * dimension value (since lower triangular has no zeros in the first row) until the n_coef - dimension
-     * (for example for dim = 3, we would stop until 9-3 = 6 else we are out of bound).
-     * Index i will serve to select the coefficient in a row, and required_0s is the number of 0s that should be in a row.
-     * If at least one of them is not 0 the loop will stop and isTriangular_lower will be set to false.
+     * Checks numbers over the diagonal by starting from r = 0 to r = dimension - 2, and c = r+1 till c = dimension - 1.
+     * Example:
+     * for the row = 0 we have [2,0,0,0] so c = 0 + 1 --> M(0,1) == 0 --> M(0,2) == 0 --> M(0,3) == 0 --> c = 4 < 4 is False
+     * Then we check the rest of the rows except the last since there's no number over the diagonal.
      */
     bool is_triangular_lower = true;
-    int required_0s = 1;
 
-    for (int selected_row = dimension ; selected_row <= n_coef - dimension ; selected_row += dimension)
+    for (int r = 0 ; r < dimension - 1 && is_triangular_lower; r++)
     {
-        for (int i = 0; i < required_0s; i++)
+        for (int c = r+1; c < dimension; c++)
         {
-            if (matrix[i+selected_row]) // if we have row 2 = [0,2,9,10] | i = 0 -> matrix[0 + dimension] = matrix[0 + 4] = 0, so if (0) is false
+            if (M(r,c) != 0.0f)
             {
                 is_triangular_lower = false;
-                break; // if the coefficient isn't 0 then break
+                break;
             }
         }
-        required_0s++; // each row would need +1 zero, row 1 need none, row 2 needs 1 zero, row 3 needs 2 zeros and so on
     }
 
     // Upper Triangular:
@@ -80,22 +78,19 @@ int main(void)
      * If at least one of them is not 0 the loop will stop and isTriangular_upper will be set to false.
      */
     bool is_triangular_upper = true;
-    required_0s = dimension-1;
-    int next = 0;
 
-    for (int r = 0 ; r < n_coef - dimension ; r += dimension)
+    for (int r = dimension - 1; r > 0 && is_triangular_upper; r--)
     {
-        for (int i = 1 + next; i <= required_0s; i++)
+        for (int c = 0; c < r; c++)
         {
-            if (matrix[i + r + next])
+            if (M(r,c) != 0.0f)
             {
                 is_triangular_upper = false;
-                break; // if the coefficient isn't 0 then break
+                break;
             }
         }
-        required_0s--;
-        next++;
     }
+
 
     if (is_triangular_upper && is_triangular_lower) printf("The square matrix is diagonal hence symmetrical.");
     else if (is_triangular_upper) printf("The square matrix is an upper triangular.");
@@ -105,16 +100,17 @@ int main(void)
         bool is_symmetrical = true;
 
         for (int r = 0; r < dimension && is_symmetrical; r++)
+        {
             for (int c = 0; c < dimension; c++)
             {
-                if (matrix[r * dimension + c] != matrix[c * dimension + r])
-                // following the definition of symmetrical: M[i,j] == M[j,i]
+                if (M(r,c) != M(c,r))
+                    // following the definition of symmetrical: M[i,j] == M[j,i]
                 {
                     is_symmetrical = false;
                     break;
                 }
             }
-
+        }
 
         if (is_symmetrical) printf("The matrix is symmetrical.\n");
         else printf("The matrix isn't triangular nor is it symmetrical.");
