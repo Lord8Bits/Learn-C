@@ -7,7 +7,7 @@
 
 int main(void)
 {
-    int dimension = 0;
+    int dimension;
     do
     {
         printf("Entrer l'ordre de la matrice (1-4): ");
@@ -31,7 +31,6 @@ int main(void)
         }
 
     }
-
     // for (int i = 0; i < dimension; i++)
     //     for (int j = 0; j < dimension; j++)
     //         matrix[i*dimension + j] = (i <= j) ? i + j : j + i;
